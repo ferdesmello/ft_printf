@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ferde-so <ferde-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/17 15:15:37 by ferde-so          #+#    #+#             */
-/*   Updated: 2026/06/19 06:06:34 by ferde-so         ###   ########.fr       */
+/*   Created: 2026/06/21 00:02:06 by ferde-so          #+#    #+#             */
+/*   Updated: 2026/06/21 00:02:07 by ferde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_fd(int n, int fd)
+int	ft_putptr(void *n)
 {
-	long int	long_n;
-	char		c;
-	int		count;
+	unsigned long	address;
+	char			c;
+	int				count;
+	const char 		*set;
 
-	long_n = n;
+	if (!n)
+	{
+		write(1, "0", 1);
+		return (1);
+	}
+	set = "0123456789abcdef";
+	address = (unsigned long)n;
 	count = 0;
-	if (long_n < 0)
+	if (address > 9)
 	{
-		write(fd, "-", 1);
-		long_n = -long_n;
-		count++;
+		count += ft_putptr((void *)(address / 16));
 	}
-	if (long_n > 9)
-	{
-		count += ft_putnbr_fd(long_n / 10, fd);
-	}
-	c = (long_n % 10) + '0';
-	write(fd, &c, 1);
+	c = set[address % 16];
+	write(1, &c, 1);
 	count++;
 	return (count);
 }

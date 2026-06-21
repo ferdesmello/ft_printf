@@ -6,14 +6,14 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
 
 # Source objects
-SRCS = ft_atoi.c \
-ft_char_in_set.c \
-ft_itoa.c \
+SRCS = ft_char_in_set.c \
 ft_printf.c \
-ft_putchar_fd.c \
-ft_putnbr_fd.c \
-ft_putstr_fd.c \
-ft_strlen.c
+ft_putchar.c \
+ft_putnbr.c \
+ft_putunbr.c \
+ft_putstr.c \
+ft_puthex.c \
+ft_putptr.c
 
 OBJS = $(SRCS:.c=.o)
 

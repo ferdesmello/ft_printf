@@ -6,7 +6,7 @@
 /*   By: ferde-so <ferde-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 14:59:38 by ferde-so          #+#    #+#             */
-/*   Updated: 2026/06/19 06:04:42 by ferde-so         ###   ########.fr       */
+/*   Updated: 2026/06/21 00:05:15 by ferde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,47 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%' && ft_char_in_set(format[i+1], set))
 		{
-			if(format[i+1] == 'd'){
-				count += ft_putnbr_fd(va_arg(args, int), 1);
+			if(format[i+1] == 'c')
+			{
+				number = va_arg(args, int);
+				count += ft_putchar(number);
 				i++;
 			}
-			if(format[i+1] == 'c'){
-				number = va_arg(args, int);
-				write(1, &number, 1);
-				count++;
+			if(format[i+1] == 's')
+			{
+				count += ft_putstr(va_arg(args, char *));
+				i++;
+			}
+			if(format[i+1] == 'p')
+			{
+				ft_putstr("0x");
+				count += 2;
+				count += ft_putptr(va_arg(args, void *));
+				i++;
+			}
+			if(format[i+1] == 'd' || format[i+1] == 'i')
+			{
+				count += ft_putnbr(va_arg(args, int));
+				i++;
+			}
+			if(format[i+1] == 'u'){
+				count += ft_putunbr(va_arg(args, unsigned int));
+				i++;
+			}
+			if(format[i+1] == 'x' || format[i+1] == 'X')
+			{
+				count += ft_puthex(va_arg(args, int), format[i+1]);
+				i++;
+			}
+			if(format[i+1] == '%')
+			{
+				count += ft_putchar('%');
 				i++;
 			}
 		}
 		else
 		{
-			write(1, &format[i], 1);
-			count++;
+			count += ft_putchar(format[i]);
 		}
 		i++;
 	}

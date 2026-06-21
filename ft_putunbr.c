@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putunbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ferde-so <ferde-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/17 15:15:17 by ferde-so          #+#    #+#             */
-/*   Updated: 2026/06/17 15:15:18 by ferde-so         ###   ########.fr       */
+/*   Created: 2026/06/17 15:15:37 by ferde-so          #+#    #+#             */
+/*   Updated: 2026/06/20 22:57:12 by ferde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_putunbr(unsigned int n)
 {
-	size_t	len;
+	char		c;
+	int		count;
+	
+	count = 0;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	if (n > 9)
+	{
+		count += ft_putunbr(n / 10);
+	}
+	c = (n % 10) + '0';
+	write(1, &c, 1);
+	count++;
+	return (count);
 }
