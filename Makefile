@@ -9,11 +9,11 @@ NAME = libftprintf.a
 SRCS = ft_char_in_set.c \
 ft_printf.c \
 ft_putchar.c \
-ft_putnbr.c \
-ft_putunbr.c \
-ft_putstr.c \
 ft_puthex.c \
-ft_putptr.c
+ft_putnbr.c \
+ft_putptr.c \
+ft_putstr.c \
+ft_putunbr.c
 
 OBJS = $(SRCS:.c=.o)
 

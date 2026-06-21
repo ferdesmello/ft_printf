@@ -6,7 +6,7 @@
 /*   By: ferde-so <ferde-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 00:02:06 by ferde-so          #+#    #+#             */
-/*   Updated: 2026/06/21 00:02:07 by ferde-so         ###   ########.fr       */
+/*   Updated: 2026/06/21 05:44:05 by ferde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_putptr(void *n)
 	set = "0123456789abcdef";
 	address = (unsigned long)n;
 	count = 0;
-	if (address > 9)
+	if (address >= 16)
 	{
 		count += ft_putptr((void *)(address / 16));
 	}

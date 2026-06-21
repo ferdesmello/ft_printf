@@ -1,23 +1,21 @@
 #include "ft_printf.h"
 
-int	ft_puthex(int n, char format)
+int	ft_puthex(unsigned int n, char specifier)
 {
-	unsigned int	long_n;
 	char			c;
 	int				count;
 	const char		*set;
 
-	if (format == 'X')
+	if (specifier == 'X')
 		set = "0123456789ABCDEF";
 	else
 		set = "0123456789abcdef";
-	long_n = n;
 	count = 0;
-	if (long_n >= 16)
+	if (n >= 16)
 	{
-		count += ft_puthex(long_n / 16, format);
+		count += ft_puthex(n / 16, specifier);
 	}
-	c = set[long_n % 16];
+	c = set[n % 16];
 	write(1, &c, 1);
 	count++;
 	return (count);
