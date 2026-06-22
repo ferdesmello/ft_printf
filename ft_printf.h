@@ -6,7 +6,7 @@
 /*   By: ferde-so <ferde-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 14:38:53 by ferde-so          #+#    #+#             */
-/*   Updated: 2026/06/21 04:38:13 by ferde-so         ###   ########.fr       */
+/*   Updated: 2026/06/22 04:01:14 by ferde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 int	ft_char_in_set(const char c, const char *set);
 int	ft_printf(const char *, ...);
 int	ft_putchar(char c);
-int	ft_puthex(unsigned int n, char specifier);
+int	ft_puthex(unsigned int n, char type);
 int	ft_putnbr(int n);
-int	ft_putptr(void *n);
+int	ft_putptr(void *p);
 int	ft_putstr(char *s);
 int	ft_putunbr(unsigned int n);
 

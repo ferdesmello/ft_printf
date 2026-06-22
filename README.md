@@ -1,3 +1,5 @@
+# ft_printf
+
 *This project has been created as part of the 42 curriculum by ferde-so.*
 
 ## Description
@@ -81,7 +83,7 @@ The structure is a simple run character by character of the string given, printi
 This is done using these functions:
 
 - `ft_char_in_set` — checks if a character is in a set of characters.
-- `ft_printf` — the main function created to call the others. Returns the sum of printed characters.
+- `ft_printf` — the main function created to call the others. Returns the sum of the printed characters.
 - `ft_putchar` — writes a character to the standard output and returns 1.
 - `ft_puthex` — writes a hexadecimal number to the standard output and returns its length.
 - `ft_putnbr` — writes an integer number to the standard output and returns its digit length.

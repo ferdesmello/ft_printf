@@ -6,21 +6,21 @@
 /*   By: ferde-so <ferde-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 14:59:38 by ferde-so          #+#    #+#             */
-/*   Updated: 2026/06/21 05:40:52 by ferde-so         ###   ########.fr       */
+/*   Updated: 2026/06/22 02:38:33 by ferde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_format_dispatch(char specifier, va_list *args)
+static int	ft_type(char type, va_list *args)
 {
 	void *pointer;
 	
-	if (specifier == 'c')
+	if (type == 'c')
 		return (ft_putchar(va_arg(*args, int)));
-	if (specifier == 's')
+	if (type == 's')
 		return (ft_putstr(va_arg(*args, char *)));
-	if (specifier == 'p')
+	if (type == 'p')
 	{
 		pointer = va_arg(*args, void *);
 		if (!pointer)
@@ -28,36 +28,36 @@ static int	ft_format_dispatch(char specifier, va_list *args)
 		ft_putstr("0x");
 		return (2 + ft_putptr(pointer));
 	}
-	if (specifier == 'd' || specifier == 'i')
+	if (type == 'd' || type == 'i')
 		return (ft_putnbr(va_arg(*args, int)));
-	if (specifier == 'u')
+	if (type == 'u')
 		return (ft_putunbr(va_arg(*args, unsigned int)));
-	if (specifier == 'x' || specifier == 'X')
-		return (ft_puthex(va_arg(*args, unsigned int), specifier));
-	if (specifier == '%')
+	if (type == 'x' || type == 'X')
+		return (ft_puthex(va_arg(*args, unsigned int), type));
+	if (type == '%')
 		return (ft_putchar('%'));
 	return (0);
 }
 
-int	ft_printf(const char *format, ...)
+int	ft_printf(const char *string, ...)
 {
 	va_list	args;
-	size_t	i;
+	int		i;
 	int		count;
 
-	va_start(args, format);
+	va_start(args, string);
 	i = 0;
 	count = 0;
-	while (format[i] != '\0')
+	while (string[i] != '\0')
 	{
-		if (format[i] == '%' && format[i + 1] != '\0'
-			&& ft_char_in_set(format[i + 1], "cspdiuxX%"))
+		if (string[i] == '%' && string[i + 1] != '\0'
+			&& ft_char_in_set(string[i + 1], "cspdiuxX%"))
 		{
-			count += ft_format_dispatch(format[i + 1], &args);
+			count += ft_type(string[i + 1], &args);
 			i++;
 		}
 		else
-			count += ft_putchar(format[i]);
+			count += ft_putchar(string[i]);
 		i++;
 	}
 	va_end(args);

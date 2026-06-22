@@ -6,26 +6,26 @@
 /*   By: ferde-so <ferde-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 00:02:06 by ferde-so          #+#    #+#             */
-/*   Updated: 2026/06/21 05:44:05 by ferde-so         ###   ########.fr       */
+/*   Updated: 2026/06/22 04:01:00 by ferde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putptr(void *n)
+int	ft_putptr(void *p)
 {
 	unsigned long	address;
 	char			c;
 	int				count;
 	const char 		*set;
 
-	if (!n)
+	if (!p)
 	{
 		write(1, "0", 1);
 		return (1);
 	}
 	set = "0123456789abcdef";
-	address = (unsigned long)n;
+	address = (unsigned long)p;
 	count = 0;
 	if (address >= 16)
 	{
