@@ -6,7 +6,7 @@
 /*   By: ferde-so <ferde-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 15:15:37 by ferde-so          #+#    #+#             */
-/*   Updated: 2026/06/20 22:57:12 by ferde-so         ###   ########.fr       */
+/*   Updated: 2026/06/23 14:23:20 by ferde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 int	ft_putunbr(unsigned int n)
 {
-	char		c;
+	char	c;
 	int		count;
-	
-	count = 0;
 
+	count = 0;
 	if (n > 9)
 	{
 		count += ft_putunbr(n / 10);

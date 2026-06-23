@@ -6,7 +6,7 @@
 /*   By: ferde-so <ferde-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 15:15:37 by ferde-so          #+#    #+#             */
-/*   Updated: 2026/06/20 22:56:57 by ferde-so         ###   ########.fr       */
+/*   Updated: 2026/06/23 14:21:23 by ferde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_putnbr(int n)
 {
 	long int	long_n;
 	char		c;
-	int		count;
+	int			count;
 
 	long_n = n;
 	count = 0;

@@ -6,7 +6,7 @@
 /*   By: ferde-so <ferde-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 14:59:38 by ferde-so          #+#    #+#             */
-/*   Updated: 2026/06/22 02:38:33 by ferde-so         ###   ########.fr       */
+/*   Updated: 2026/06/23 15:32:54 by ferde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	ft_type(char type, va_list *args)
 {
-	void *pointer;
-	
+	void	*pointer;
+
 	if (type == 'c')
 		return (ft_putchar(va_arg(*args, int)));
 	if (type == 's')
@@ -57,7 +57,9 @@ int	ft_printf(const char *string, ...)
 			i++;
 		}
 		else
+		{
 			count += ft_putchar(string[i]);
+		}
 		i++;
 	}
 	va_end(args);

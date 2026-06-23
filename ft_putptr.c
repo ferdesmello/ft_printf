@@ -6,7 +6,7 @@
 /*   By: ferde-so <ferde-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 00:02:06 by ferde-so          #+#    #+#             */
-/*   Updated: 2026/06/22 04:01:00 by ferde-so         ###   ########.fr       */
+/*   Updated: 2026/06/23 14:21:57 by ferde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_putptr(void *p)
 	unsigned long	address;
 	char			c;
 	int				count;
-	const char 		*set;
+	const char		*set;
 
 	if (!p)
 	{
